@@ -49,7 +49,7 @@ describe('GET /api/digest/:night (temp runs dir)', () => {
     writeFileSync(join(dir, '2026-10-28.jsonl'), '');
     const res = await createApp({ ...base, runsDir: dir }).request('/api/digest/2026-10-28');
     expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({ night: '2026-10-28', rows: [], badLines: 0 });
+    expect(await res.json()).toEqual({ night: '2026-10-28', rows: [], badLines: 0, counts: { ok: 0, retry: 0, fail: 0 } });
   });
 
   it('counts a bad line and still returns the good rows', async () => {
