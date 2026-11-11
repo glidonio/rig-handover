@@ -30,6 +30,21 @@ Read first: `docs/vision.md`, `docs/styleguide.md`. Decisions: `docs/adr/`.
 5. An issue is closed only when its "Done when" holds. If it can't hold yet, leave it open and
    say what it waits on.
 
+## Issue shape
+
+Every issue in this repo carries the same fields, in this order (set by the team lead for the
+morning-digest plan; the split is approved before publishing, step 2):
+
+- **Title:** the plan section's name, short.
+- **Label:** `plan:<plan-name>`, e.g. `plan:morning-digest`.
+- **Body, first line:** `Source: plan.md § <n>`.
+- **Body, scope:** one or two lines, what this unit delivers.
+- **Body, `Done when:`** a check anyone can run or see: a command, a URL, or a test name.
+- **Body, `Blocked by:`** `#n, #m`, or `—`.
+
+A step that waits on someone outside the repo (a reviewer, a host) stays open until that
+person answers. Its closing comment says what it waited on. Only the lead closes it, not the worker.
+
 ## Skills
 
 Shared skills live in `.agents/skills/`, one folder each, `SKILL.md` inside. That folder is the
