@@ -27,6 +27,7 @@ export type NightReading = {
   night: string;
   rows: DigestRow[]; // sorted by job
   badLines: number; // lines that did not parse or failed the checks; never thrown
+  counts: Record<RunStatus, number>; // valid lines in the night, by status
 };
 
 // readNight(runsDir, night) reads runs/<night>.jsonl.
