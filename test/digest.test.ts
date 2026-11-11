@@ -75,7 +75,7 @@ describe('readNight edge cases (temp runs dir)', () => {
 
   it('renders an empty file with no rows', () => {
     write('2026-10-28', '');
-    expect(readNight(dir, '2026-10-28')).toEqual({ night: '2026-10-28', rows: [], badLines: 0 });
+    expect(readNight(dir, '2026-10-28')).toEqual({ night: '2026-10-28', rows: [], badLines: 0, counts: { ok: 0, retry: 0, fail: 0 } });
   });
 
   it('counts lines that do not parse or break the schema, and never throws', () => {
