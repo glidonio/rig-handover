@@ -30,5 +30,12 @@ export function createApp(config: RigConfig = loadConfig()) {
     );
   });
 
+  // Same source as the digest page: the JSON is the reading itself, so the two cannot disagree.
+  app.get('/api/digest/:night', (c) => {
+    const reading = readNight(config.runsDir, c.req.param('night'));
+    if (!reading) return c.json({ error: 'no run log for this night' }, 404);
+    return c.json(reading);
+  });
+
   return app;
 }
